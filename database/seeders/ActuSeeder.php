@@ -17,7 +17,7 @@ class ActuSeeder extends Seeder
     {
         $actu = new Actu();
         $actu->date_publication = "2023-01-05";
-        $actu->heure_de_publication = "14.50.49";
+        $actu->heure_de_publication = "14:50:49";
         $actu->texte = "Lorem ipsum dolor sit.";
         $actu->save();
     }
