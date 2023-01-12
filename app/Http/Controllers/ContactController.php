@@ -10,7 +10,7 @@ class ContactController extends Controller
     public function index()
     {
     
-        $users = DB::table('users')
+        $users = DB::table('restaurant')
             ->where('votes', '=', 100)
             ->where('age', '=', 35)
             ->get();
