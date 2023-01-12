@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\AccueilController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\MentionsLegalesController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,33 +18,47 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('accueil');
-})->name('accueil');
+//Ici utilisation de controllers pour un gain de teamps et d'espace.
 
-Route::get('/hello/{name}', function ($name) {
+Route::get('/accueil', [AccueilController::class, 'index'])->name('accueil');
 
-    // traitement des données
-    $name = '"'.$name.'"';
+// Route::get('/accueil', [function () {
+//     return view('accueil');
+// }])->name('accueil');
 
-    return view('hello', [
-        // passage de variables à une vue
-        'name' => $name,
-    ]);
-})->name('hello');
+Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
 
-Route::get('/reservation', function () {
-    return view('reservation');
-})->name('reservation');
 
-Route::get('/menu', function () {
-    return view('menu');
-})->name('menu');
+// Route::get('/hello/{name}', function ($name) {
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+//     // traitement des données
+//     $name = '"'.$name.'"';
 
-Route::get('/mentions_legales', function () {
-    return view('mentions_legales');
-})->name('mentions_legales');
+//     return view('hello', [
+//         // passage de variables à une vue
+//         'name' => $name,
+//     ]);
+// })->name('hello');
+
+
+// Route::get('/reservation', function () {
+//     return view('reservation');
+// })->name('reservation');
+    
+    Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+
+// Route::get('/menu', function () {
+//     return view('menu');
+// })->name('menu');
+    
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+// Route::get('/contact', function () {
+//     return view('contact');
+// })->name('contact');
+
+Route::get('/mentions-legales', [MentionsLegalesController::class, 'index'])->name('mentions_legales');
+    
+// Route::get('/mentions_legales', function () {
+//     return view('mentions_legales');
+// })->name('mentions_legales');

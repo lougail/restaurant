@@ -15,8 +15,8 @@ class RestaurantSeeder extends Seeder
      */
     public function run ()
     {
-        // $restaurant = new Restaurant();
-        // $restaurant->setCle('adresse');
-        // $restaurant->setValeur('5 bd Louis XIV, 59000, Lille)
+        $restaurant = new Restaurant();
+        $restaurant->setCle('adresse');
+        $restaurant->setValeur('5 bd Louis XIV', '59000', 'Lille');
     }
 }

@@ -2,12 +2,21 @@
 
 @section('page_title', 'Menu')
 
-@section('vite')
-    @parent
-    @vite(['resources/css/menu.css'])
-@endsection
-
 @section('content')
     <h1>Menu</h1>
-    <img class="medium-size" src="{{ asset('img/random_img.jpg') }}" alt="random _img">    
+
+    @foreach ($categories as $categorie)
+        <h2>{{ $categorie->nom }}</h2>
+        <p>{{ $categorie->description }}</p>
+
+    <ul>
+        @foreach ($categorie->platsSortedByPrix as $plat)
+        <li>
+            {{ $plat->nom }}<br>
+            {{ $plat->prix }}<br>
+            {{ $plat->description }}<br>
+        </li>
+        @endforeach 
+    </ul>
+        @endforeach
 @endsection
