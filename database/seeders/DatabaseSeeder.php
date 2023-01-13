@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             ActuSeeder::class,
             EtiquetteSeeder::class,
             ReservationSeeder::class,
+            RestaurantSeeder::class
         ]);
     }
 }

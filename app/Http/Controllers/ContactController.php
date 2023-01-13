@@ -9,14 +9,17 @@ class ContactController extends Controller
 {
     public function index()
     {
-    
         // SELECT * FROM categorie ORDER BY id ASC
-        $categories = DB::table('categorie')
-            ->orderBy('id', 'asc')
-            ->get()
+        $adresse = DB::table('restaurant')
+            ->where('cle', '=', 'adresse')
+            ->first() //ou get()
         ;
 
-        return view('contact');
+        dd($adresse);
 
+        return view('contact',
+        [
+            'adresse' => $adresse->valeur,
+        ]);
     }
 }
