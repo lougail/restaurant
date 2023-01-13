@@ -10,10 +10,13 @@ class ContactController extends Controller
     public function index()
     {
     
-        $users = DB::table('restaurant')
-            ->where('votes', '=', 100)
-            ->where('age', '=', 35)
-            ->get();
+        // SELECT * FROM categorie ORDER BY id ASC
+        $categories = DB::table('categorie')
+            ->orderBy('id', 'asc')
+            ->get()
+        ;
+
+        return view('contact');
 
     }
 }
