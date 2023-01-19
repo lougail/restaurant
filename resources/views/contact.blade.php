@@ -13,9 +13,11 @@
 
     <h1>Contact</h1>
 
-    {{ $adresse->cle }} = {{ $adresse->valeur }} <br>
-    {{ $adresse->cle }} = {{ $adresse->valeur }} <br>
-    {{ $adresse->cle }} = {{ $adresse->valeur }} <br>
-    {{ $adresse->cle }} = {{ $adresse->valeur }} <br>
+    {{-- {{ $restaurants }} <br> --}}
+    <p>{{$adresse}}</p> <br>
+    <p>{{$tel}}</p> <br>
+    <p>Le restaurant est ouvert de : {{ $horaire}}.</p> <br>
+    <div>{!!$carte!!}</div> <br>
+
 
 @endsection
