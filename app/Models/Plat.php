@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Etiquette;
 use App\Models\Categorie;
 use App\Models\Photoplat;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -32,5 +33,15 @@ class Plat extends Model
     public function categorie ()
     {
         return $this->belongsTo (Categorie::class);
+    }
+
+    /**
+     * Cette fonction permet de récupérer la colection d'étiquettes.
+     *
+     * @return void
+     */
+    public function etiquettes ()
+    {
+        return $this->belongsToMany (Etiquette::class);
     }
 }

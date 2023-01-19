@@ -11,4 +11,9 @@ class Etiquette extends Model
 
     protected $table = 'etiquette';
     protected $primaryKey = 'id';
+
+    public function plats ()
+    {
+        return $this->belongsToMany(Plat::class);
+    }
 }
