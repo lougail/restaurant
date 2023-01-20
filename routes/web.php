@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\ReservationController as AdminReservationController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AccueilController;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\MentionsLegalesController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,11 +57,14 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 //     return view('contact');
 // })->name('contact');
 
-Route::get('/mentions-legales', [MentionsLegalesController::class, 'index'])->name('mentions_legales');
+Route::get('/mentions-legales', [MentionsLegalesController::class, 'index'])->name('mentions-legales');
     
 // Route::get('/mentions_legales', function () {
 //     return view('mentions_legales');
 // })->name('mentions_legales');
+
+Route::get('/admin/reservation', [AdminReservationController::class, 
+'index'])->middleware('auth')->name('admin.reservation.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
