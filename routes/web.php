@@ -14,9 +14,48 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AccueilController::class, 'index'])->name('accueil');
+
+// Route::get('/accueil', [function () {
+//     return view('accueil');
+// }])->name('accueil');
+
+Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
+
+
+// Route::get('/hello/{name}', function ($name) {
+
+//     // traitement des données
+//     $name = '"'.$name.'"';
+
+//     return view('hello', [
+//         // passage de variables à une vue
+//         'name' => $name,
+//     ]);
+// })->name('hello');
+
+
+// Route::get('/reservation', function () {
+//     return view('reservation');
+// })->name('reservation');
+    
+Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+
+// Route::get('/menu', function () {
+//     return view('menu');
+// })->name('menu');
+    
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+// Route::get('/contact', function () {
+//     return view('contact');
+// })->name('contact');
+
+Route::get('/mentions-legales', [MentionsLegalesController::class, 'index'])->name('mentions_legales');
+    
+// Route::get('/mentions_legales', function () {
+//     return view('mentions_legales');
+// })->name('mentions_legales');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
