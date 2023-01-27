@@ -45,8 +45,8 @@ class ReservationSeeder extends Seeder
                 'prenom' => 'Foo',
                 'jour' => '2023-01-06',
                 'heure' => '12:00',
-                'nombre_de_personnes' => '4',
-                'numero_de_telephone' => '0612345678',
+                'nombre_personnes' => '4',
+                'tel' => '0612345678',
                 'email' => 'foo.foo@example.com',
             ],
             [
@@ -54,8 +54,8 @@ class ReservationSeeder extends Seeder
                 'prenom' => 'Bar',
                 'jour' => '2023-01-13',
                 'heure' => '12:00',
-                'nombre_de_personnes' => '8',
-                'numero_de_telephone' => '0634567812',
+                'nombre_personnes' => '8',
+                'tel' => '0634567812',
                 'email' => 'bar.bar@example.com',
             ],
         ];
@@ -67,8 +67,8 @@ class ReservationSeeder extends Seeder
             $reservation->prenom = $reservationData['prenom'];
             $reservation->jour = $reservationData['jour'];
             $reservation->heure = $reservationData['heure'];
-            $reservation->nombre_de_personnes = $reservationData['nombre_de_personnes'];
-            $reservation->numero_de_telephone = $reservationData['numero_de_telephone'];
+            $reservation->nombre_personnes = $reservationData['nombre_personnes'];
+            $reservation->tel = $reservationData['tel'];
             $reservation->email = $reservationData['email'];
             $reservation->save();
 
@@ -99,8 +99,8 @@ class ReservationSeeder extends Seeder
             $prenom = str_replace("ë", "e", $prenom);
             $reservation->jour = $faker->date('Y-m-d');
             $reservation->heure = $faker->time('H:i');
-            $reservation->nombre_de_personnes = random_int(1, 20);
-            $reservation->numero_de_telephone = $faker->phoneNumber();
+            $reservation->nombre_personnes = random_int(1, 20);
+            $reservation->tel = $faker->phoneNumber();
             $reservation->email = $nom. "." .$prenom. "@example.com";
             $reservation->save();
 

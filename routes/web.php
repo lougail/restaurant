@@ -7,11 +7,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\MentionsLegalesController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Routes    
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -63,8 +64,13 @@ Route::get('/mentions-legales', [MentionsLegalesController::class, 'index'])->na
 //     return view('mentions_legales');
 // })->name('mentions_legales');
 
-Route::get('/admin/reservation', [AdminReservationController::class, 
-'index'])->middleware('auth')->name('admin.reservation.index');
+Route::get('/admin/reservation', [AdminReservationController::class, 'index'])->middleware('auth')->name('admin.reservation.index');
+
+Route::get('/admin/reservation/create', [AdminReservationController::class, 'create'])->middleware('auth')->name('admin.reservation.create');
+Route::post('/admin/reservation/store', [AdminReservationController::class, 'store'])->middleware('auth')->name('admin.reservation.store');
+
+Route::get('/admin/reservation/{id}/edit', [AdminReservationController::class, 'edit'])->middleware('auth')->name('admin.reservation.edit');
+Route::post('/admin/reservation/{id}/update', [AdminReservationController::class, 'update'])->middleware('auth')->name('admin.reservation.update');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

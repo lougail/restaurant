@@ -9,5 +9,5 @@
 
 @section('content')
     <h1>Réservation</h1>
-    <img class="medium-size" src="{{ asset('img/random_img.jpg') }}" alt="random _img">    
+    <img class="medium-size" src="{{ asset('img/random_img.jpg') }}" alt="random_img">    
 @endsection

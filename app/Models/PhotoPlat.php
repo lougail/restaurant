@@ -19,6 +19,6 @@ class PhotoPlat extends Model
      */
     public function plat ()
     {
-        return $this->hasOne(Plat::class);
+        return $this->hasOne(Plat::class, 'photo_plat_id', 'id');
     }
 }
