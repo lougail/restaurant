@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes    
+| Web Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -27,8 +27,9 @@ Route::get('/', [AccueilController::class, 'index'])->name('accueil');
 //     return view('accueil');
 // }])->name('accueil');
 
-Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
+Route::get('/actu', [ActuController::class, 'index'])->name('actu');
 
+Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation');
 
 // Route::get('/hello/{name}', function ($name) {
 
@@ -45,13 +46,13 @@ Route::get('/reservation', [ReservationController::class, 'index'])->name('reser
 // Route::get('/reservation', function () {
 //     return view('reservation');
 // })->name('reservation');
-    
+
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 
 // Route::get('/menu', function () {
 //     return view('menu');
 // })->name('menu');
-    
+
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 // Route::get('/contact', function () {
@@ -59,7 +60,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 // })->name('contact');
 
 Route::get('/mentions-legales', [MentionsLegalesController::class, 'index'])->name('mentions-legales');
-    
+
 // Route::get('/mentions_legales', function () {
 //     return view('mentions_legales');
 // })->name('mentions_legales');
@@ -67,10 +68,12 @@ Route::get('/mentions-legales', [MentionsLegalesController::class, 'index'])->na
 Route::get('/admin/reservation', [AdminReservationController::class, 'index'])->middleware('auth')->name('admin.reservation.index');
 
 Route::get('/admin/reservation/create', [AdminReservationController::class, 'create'])->middleware('auth')->name('admin.reservation.create');
-Route::post('/admin/reservation/store', [AdminReservationController::class, 'store'])->middleware('auth')->name('admin.reservation.store');
+Route::post('/admin/reservation', [AdminReservationController::class, 'store'])->middleware('auth')->name('admin.reservation.store');
 
 Route::get('/admin/reservation/{id}/edit', [AdminReservationController::class, 'edit'])->middleware('auth')->name('admin.reservation.edit');
-Route::post('/admin/reservation/{id}/update', [AdminReservationController::class, 'update'])->middleware('auth')->name('admin.reservation.update');
+Route::put('/admin/reservation/{id}/update', [AdminReservationController::class, 'update'])->middleware('auth')->name('admin.reservation.update');
+
+Route::delete('/admin/reservation/{id}', [AdminReservationController::class, 'delete'])->middleware('auth')->name('admin.reservation.delete');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

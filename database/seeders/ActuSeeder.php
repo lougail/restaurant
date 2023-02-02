@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Faker;
 use App\Models\Actu;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
