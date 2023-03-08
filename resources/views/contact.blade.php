@@ -6,7 +6,7 @@
 
     @parent
     @vite(['resources/css/contact.css'])
-    
+
 @endsection
 
 @section('content')
@@ -17,7 +17,9 @@
     <p>{{$adresse}}</p> <br>
     <p>{{$tel}}</p> <br>
     <p>Le restaurant est ouvert de : {{$horaire}}.</p> <br>
-    <div>{!!$carte!!}</div> <br>
+    <div>
+        {!!$carte!!}
+    </div> <br>
 
 
 @endsection

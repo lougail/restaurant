@@ -2,16 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    background-color: rgba(246, 228, 197, 0.722);
-    margin: 0;
+body
+{
+    background-color: rgb(246, 228, 197, 0.722);
     padding: 0;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
-header ul {
+header ul
+{
     list-style: none;
     padding: 0;
     margin: 0;
@@ -19,7 +22,8 @@ header ul {
     justify-content: space-evenly;
 }
 
-header ul a {
+header ul a
+{
     background-color: lightblue;
     border: 1px solid grey;
     padding: 1rem 2rem;
@@ -27,14 +31,48 @@ header ul a {
     color: black;
 }
 
-h1 {
+h1
+{
     font-size: 5rem;
 }
 
-img {
+img
+{
     max-width: 100%;
 }
 
-.menu--photo-plat {
+.menu--photo-plat
+{
     width: 20rem;
 }
+
+.form--radio-button--scorllable,
+.form--checkboxes--scorllable
+{
+    border: 1px black solid;
+    max-height: 250px;
+    overflow: auto;
+    width: 800px;
+}
+
+.form--radio-buttons--image
+{
+    height: 100px;
+}
+
+form {
+    margin-left: 2%;
+    margin-right: 2%;
+
+}
+form input {
+    color: black;
+}
+
+form button {
+    border: 1px solid black;
+    padding: 3px;
+    border-radius: 5px;
+    margin-left: 2%;
+    margin-right: 2%;
+ }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+
+use stdClass;
 use App\Models\Reservation;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -27,10 +29,23 @@ class ReservationController extends Controller
     public function create()
     {
         // valeurs par défaut
+        $reservation = new stdClass();
+
+        $reservation->nom = '';
+        $reservation->prenom = '';
+        $reservation->jour = '';
+        $reservation->heure = '20:00';
+        $reservation->nombre_personnes = 2;
+        $reservation->tel = '';
+        $reservation->email = '';
+
+        // Récupération des créneaux horaires.
+        $creneaux_horaires = $this->getCreneauxHoraires();
 
         // transmission des valeurs par défaut à la vue
         return view('admin.reservation.create', [
-            // ...
+            'reservation' => $reservation,
+            'creneaux_horaires' => $creneaux_horaires,
         ]);
     }
 
@@ -52,7 +67,7 @@ class ReservationController extends Controller
      */
     public function edit(int $id)
     {
-        // récupération de la réservation
+        // Récupération de la réservation
         $reservation = Reservation::find($id);
 
         // affichage d'une erreur 404 si la réservation est introuvable
@@ -188,5 +203,25 @@ class ReservationController extends Controller
         $request->session()->flash('confirmation', 'Vos modifications ont été enregistrées.');
 
         return redirect()->route('admin.reservation.edit', ['id' => $reservation->id]);
+
+    }
+
+    public function delete(Request $request, int $id)
+    {
+        $reservation = Reservation::find($id);
+
+        if (!$reservation) {
+            abort(404);
+        };
+
+        $reservation->delete();
+
+        /** @var
+        Symfony\Component\HttpFoundation\Session\SessionInterface $session */
+        $session = $request->session();
+        $session->remove('confirmation', );
+
+        return redirect()->route('admin.reservation.index');
+
     }
 }

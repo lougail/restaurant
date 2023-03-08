@@ -24,7 +24,7 @@
         </tr>
 
         @foreach ($reservations as $reservation)
-    
+
         <tr>
 
             <td>{{$reservation->nom}}</td>
@@ -36,10 +36,16 @@
             <td>{{$reservation->email}}</td>
             <td>
                 <a href="{{ route('admin.reservation.edit', ['id' => $reservation->id]) }}">Modifier</a>
+            <form action="{{ route('admin.reservation.delete', ['id' => $reservation->id]) }} method='POST' onsubmit="return window.confirm('Êtes-vous sûr de vouloir supprimer cet élément ?')">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Supprimer</button>
+                <a href="{{ route('admin.reservation.delete', ['id' => $reservation->id]) }}" onclick="event.preventDefault(); this.closest(form).submit(); }">Supprimer</a>
+            </form>
             </td>
-    
+
         </tr>
-    
+
         @endforeach
 
     </table>
